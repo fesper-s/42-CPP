@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:58:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/08 21:27:15 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:45:14 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char **argv) {
 		std::cout << std::endl;
 	}
 	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return 0;
 }
