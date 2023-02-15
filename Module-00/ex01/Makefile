@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/08 21:00:04 by fesper-s          #+#    #+#              #
-#    Updated: 2023/02/15 09:50:38 by fesper-s         ###   ########.fr        #
+#    Created: 2023/02/15 09:08:48 by fesper-s          #+#    #+#              #
+#    Updated: 2023/02/15 09:10:56 by fesper-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = PhoneBook
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = ./megaphone.cpp
+SRCS = ./main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 20:58:38 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/15 09:49:55 by fesper-s         ###   ########.fr       */
+/*   Created: 2023/02/15 09:04:31 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/02/15 09:14:24 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main(int argc, char **argv) {
-	if (argc > 1) {
-		for (int i = 1; argv[i]; i++) {
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << (char) toupper(argv[i][j]);
-		}
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << std::endl;
+class PhoneBook {
+	public:
+	
+}
+
+int	main() {
 	return 0;
 }
