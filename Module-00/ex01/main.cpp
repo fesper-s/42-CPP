@@ -6,50 +6,69 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 09:04:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/16 22:50:52 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:36:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.hpp"
 
-void print_contact(PhoneBook *phonebook) {
-	for (int i = 0; i < 8; i++) {
-		std::cout << "----------------------------" << std::endl;
-		std::cout << phonebook->contact[i].index << std::endl;
-		std::cout << phonebook->contact[i].first_name << std::endl;
-		std::cout << phonebook->contact[i].last_name << std::endl;
-		std::cout << phonebook->contact[i].nickname << std::endl;
-		std::cout << "----------------------------" << std::endl;
+void empty_input(std::string *input, std::string request) {
+	while (input->empty()) {
+		std::cout << "Error: empty input: Try again" << std::endl;
+		std::cout << request;
+		getline(std::cin, *input);
 	}
 }
 
-void add_contact(PhoneBook *phonebook, int *i) {
-	if (*i > 7)
-		*i = 7;
-	phonebook->contact[*i].index = *i;
-	std::cout << "Insert First Name: ";
-	std::cin >> phonebook->contact[*i].first_name;
-	std::cout << "Insert Last Name: ";
-	std::cin >> phonebook->contact[*i].last_name;
-	std::cout << "Insert Nickname: ";
-	std::cin >> phonebook->contact[*i].nickname;
+void add_contact(PhoneBook *phonebook) {
+	Contact	contact;
+	std::string input;
+
+	std::cout << "Fist Name: ";
+	getline(std::cin, input);
+	if (input.empty())
+		empty_input(&input, "First Name: ");
+	std::cout << input << std::endl;
+	contact.setFirstName(input);
+
+	std::cout << "Last Name: ";
+	getline(std::cin, input);
+	if (input.empty())
+		empty_input(&input, "Last Name: ");
+	contact.setLastName(input);
+
+	std::cout << "Nickname: ";
+	getline(std::cin, input);
+	if (input.empty())
+		empty_input(&input, "Nickname: ");
+	contact.setNickname(input);
+
+	std::cout << "Phone Number: ";
+	getline(std::cin, input);
+	if (input.empty())
+		empty_input(&input, "Phone Number: ");
+	contact.setPhoneNumber(input);
+
+	std::cout << "Darkest Secret: ";
+	getline(std::cin, input);
+	if (input.empty())
+		empty_input(&input, "Darkest Secret: ");
+	contact.setDarkestSecret(input);
+
+	phonebook->newContact(contact);
 }
 
 int	main() {
 	PhoneBook phonebook;
 	std::string input;
-	int i = 0;
 
 	while (true) {
 		std::cout << "Enter command: ";
-		std::cin >> input;
-		if (input == "ADD") {
-			add_contact(&phonebook, &i);
-			i++;
-		}
+		getline(std::cin, input);
+		if (input == "ADD")
+			add_contact(&phonebook);
 		if (input == "SEARCH")
-			print_contact(&phonebook);
+			continue;
 		if (input == "EXIT")
 			break;
 	}

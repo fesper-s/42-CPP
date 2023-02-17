@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 12:15:28 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/17 14:35:54 by fesper-s         ###   ########.fr       */
+/*   Created: 2023/02/17 13:09:28 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/02/17 13:13:21 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "PhoneBook.hpp"
 
-# include "Contact.hpp"
+void PhoneBook::newContact(Contact contact) {
+	this->_contact[this->_index] = contact;
+	if (this->_index < 7)
+		this->_index++;
+}
 
-class PhoneBook {
-	private:
-		Contact _contact[8];
-		int		_index;
-	
-	public:
-		void newContact(Contact contact);
-		int	 getIndex();
-};
-
-#endif
+int	 PhoneBook::getIndex() {
+	return this->_index;
+}

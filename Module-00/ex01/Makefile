@@ -6,7 +6,7 @@
 #    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 09:08:48 by fesper-s          #+#    #+#              #
-#    Updated: 2023/02/15 09:10:56 by fesper-s         ###   ########.fr        #
+#    Updated: 2023/02/17 13:28:42 by fesper-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = PhoneBook
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = ./main.cpp
+SRCS = ./main.cpp ./Contact.cpp ./PhoneBook.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
