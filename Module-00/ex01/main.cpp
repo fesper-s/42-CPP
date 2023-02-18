@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 09:04:31 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/17 21:21:07 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/18 12:36:51 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,29 @@ void print_phonebook(PhoneBook *phonebook) {
 
 void search_contact(PhoneBook *phonebook) {
 	Contact contact;
-	int index;
+	std::string index;
+	int error;
 
 	print_phonebook(phonebook);
 	std::cout << "Insert contact index: ";
-	std::cin >> index;
-	if (index < phonebook->getIndex()) {
-		contact = phonebook->getContact(index);
+	getline(std::cin, index);
+	while (true) {
+		error = 0;
+		if (index.empty())
+			error = 1;
+		for (int i = 0; i < (int) index.length(); i++) {
+			if (!(index[i] >= '0' && index[i] <= '9'))
+				error = 1;
+		}
+		if (error) {
+			std::cout << "Insert a valid index: ";
+			getline(std::cin, index);
+		}
+		else
+			break;
+	}
+	if (stoi(index) < phonebook->getIndex()) {
+		contact = phonebook->getContact(stoi(index));
 		std::cout << "First Name:     " << contact.getFirstName() << std::endl;
 		std::cout << "Last Name:      " << contact.getLastName() << std::endl;
 		std::cout << "Nickname:       " << contact.getNickname() << std::endl;
