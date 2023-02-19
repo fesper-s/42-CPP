@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 13:54:50 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/18 21:23:39 by fesper-s         ###   ########.fr       */
+/*   Created: 2023/02/18 21:00:44 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/02/18 21:12:41 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Zombie {
 		void setName(std::string name);
 };
 
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif
