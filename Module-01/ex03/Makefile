@@ -6,11 +6,11 @@
 #    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 22:05:19 by fesper-s          #+#    #+#              #
-#    Updated: 2023/02/18 22:06:06 by fesper-s         ###   ########.fr        #
+#    Updated: 2023/02/20 19:06:07 by fesper-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain
+NAME = weapon
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 

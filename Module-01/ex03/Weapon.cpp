@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:02:09 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/19 19:55:57 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:31:28 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Weapon::Weapon(std::string type) {
 	this->_type = type;
 }
 
-std::string const Weapon::getType() {
+std::string const &Weapon::getType() {
 	return this->_type;
 }
 
