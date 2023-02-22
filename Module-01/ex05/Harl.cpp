@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:59:15 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/21 16:36:28 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:53:13 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
-	if (level == "DEBUG")
-		this->debug();
-	if (level == "INFO")
-		this->info();
-	if (level == "WARNING")
-		this->warning();
-	if (level == "ERROR")
-		this->error();
+	void (Harl::*comment_level[4]) () = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string comment[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for (int i = 0; i < 4; i++) {
+		if (comment[i] == level)
+			return (this->*comment_level[i])();
+	}
 }
