@@ -6,11 +6,12 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 19:34:18 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/24 20:22:24 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/26 11:44:58 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "utils.hpp"
 #include <cmath>
 
 Fixed::Fixed(void) : _fixedPointValue(0) {
@@ -22,11 +23,11 @@ Fixed::Fixed(Fixed const &fixed) {
 }
 
 Fixed::Fixed(int const fixedPointValue) {
-	this->_fixedPointValue = fixedPointValue * 256;
+	this->_fixedPointValue = fixedPointValue * power(2, this->_fractionalBits);
 }
 
 Fixed::Fixed(float const fixedPointValue) {
-	this->_fixedPointValue = roundf(fixedPointValue * 256);
+	this->_fixedPointValue = roundf(fixedPointValue * power(2, this->_fractionalBits));
 }
 
 Fixed::~Fixed(void) {
@@ -76,13 +77,13 @@ Fixed Fixed::operator-(Fixed const &fixed) {
 
 Fixed Fixed::operator*(Fixed const &fixed) {
 	Fixed buffer;
-	buffer.setRawBits(this->_fixedPointValue * fixed.getRawBits() / 256);
+	buffer.setRawBits(this->_fixedPointValue * fixed.getRawBits() / power(2, this->_fractionalBits));
 	return buffer;
 }
 
 Fixed Fixed::operator/(Fixed const &fixed) {
 	Fixed buffer;
-	buffer.setRawBits(this->_fixedPointValue / fixed.getRawBits() * 256);
+	buffer.setRawBits(this->_fixedPointValue / fixed.getRawBits() * power(2, this->_fractionalBits));
 	return buffer;
 }
 
@@ -117,11 +118,11 @@ void Fixed::setRawBits(int const raw) {
 }
 
 float Fixed::toFloat(void) const {
-	return float(this->_fixedPointValue) / 256;
+	return float(this->_fixedPointValue) / power(2, this->_fractionalBits);
 }
 
 int Fixed::toInt(void) const {
-	return this->_fixedPointValue / 256;
+	return this->_fixedPointValue / power(2, this->_fractionalBits);
 }
 
 Fixed &Fixed::min(Fixed &f1, Fixed &f2) {

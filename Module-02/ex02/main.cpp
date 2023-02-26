@@ -6,11 +6,18 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 19:01:10 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/24 19:02:16 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/26 11:45:29 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+int power(int baseNumber, int exponent) {
+	int result = 1;
+	for (int i = 0; i < exponent; i++)
+		result *= baseNumber;
+	return result;
+}
 
 int main(void) {
 	Fixed a;
