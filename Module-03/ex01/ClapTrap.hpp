@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:39:21 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/27 14:12:22 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:26:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string _name;
 		int _hitPoints;
 		int _energyPoints;
