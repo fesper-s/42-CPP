@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:06:37 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/28 03:11:48 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:38:53 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,39 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &clapTrap) {
 }
 
 void ClapTrap::attack(const std::string& target) {
+	if (!this->_hitPoints) {
+		std::cout << this->_name << " is dead already!" << std::endl;
+		return;
+	}
+	else if (!this->_energyPoints) {
+		std::cout << this->_name << "'s energy points are empty!" << std::endl;
+		return;
+	}
 	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+
 	this->_energyPoints--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	std::cout << "ClapTrap " << this->_name << " loses " << amount << " hit points!" << std::endl;
+	if (!this->_hitPoints) {
+		std::cout << "ClapTrap " << this->_name << " is dead already!" << std::endl;
+		return;
+	}
+	else if (this->_hitPoints <= amount) {
+		this->_hitPoints = 0;
+		std::cout << "ClapTrap " <<this->_name << " has been attacked and died!" << std::endl;
+		return;
+	}
+	std::cout << "ClapTrap " << this->_name << " has been attacked and loses " << amount << " hit points!" << std::endl;
+	this->_hitPoints -= amount;
 }
+
 void ClapTrap::beRepaired(unsigned int amount) {
+	if (!this->_energyPoints) {
+		std::cout << "ClapTrap " << this->_name << "'s energy points are empty!" << std::endl;
+		return;
+	}
 	std::cout << "ClapTrap " << this->_name << " has rapaired " << amount << " hit points!" << std::endl;
 	this->_hitPoints += amount;
 	this->_energyPoints--;
-}
-
-void ClapTrap::setName(std::string const &name) {
-	this->_name = name;
 }

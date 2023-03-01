@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:35:39 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/02/28 02:46:50 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:55:58 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,30 @@
 #include "ScavTrap.hpp"
 
 int main() {
-    std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
-    {
-        std::cout << "\033[34mConstructing\033[0m" << std::endl;
-        ClapTrap a;
-        ClapTrap b("Cody");
+	std::cout << std::endl << "----- TESTE ClapTrap -----" << std::endl;	
+	
+    ClapTrap clapTrap("Leonardo");
+    
+	clapTrap.attack("Rafael");
+	clapTrap.takeDamage(9);
+	clapTrap.beRepaired(1);
+	clapTrap.takeDamage(1);
+	clapTrap.takeDamage(1);
+	clapTrap.takeDamage(1);
 
-        std::cout << "\033[34mTesting\033[0m" << std::endl;
-        a.attack("some other robot");
-        a.takeDamage(10);
-        a.takeDamage(10);
-        a.beRepaired(5);
-        a.attack("some other other robot");
-        b.beRepaired(3);
-        for (int i = 0; i < 12; i++)
-            b.attack("Cody-clone");
-        b.beRepaired(3);
-        std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
-    }
-    std::cout << "\n\n### TESTING SCAVTRAP ###\n" << std::endl;
-    {
-        std::cout << "\033[34mConstructing\033[0m" << std::endl;
-        ScavTrap c;
-        ScavTrap d("Savage");
+	std::cout << std::endl << "----- TESTE ScavTrap -----" << std::endl;	
+	
+    ScavTrap scavTrap("Donatello");
 
-        std::cout << "\033[34mTesting\033[0m" << std::endl;
-        c.attack("CloneTrap");
-        c.beRepaired(22);
-        c.takeDamage(21);
-        c.beRepaired(22);
-        c.guardGate();
-        c.guardGate();
-        d.attack("Savage-clone");
-        d.takeDamage(101);
-        d.takeDamage(15);
-        d.attack("ScavTrap-clone");
-        std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
-    }
+	scavTrap.attack("Michelangelo");
+	scavTrap.takeDamage(99);
+	scavTrap.beRepaired(1);
+	scavTrap.takeDamage(1);
+	scavTrap.guardGate();
+	scavTrap.takeDamage(1);
+	scavTrap.takeDamage(1);
 
+	std::cout << std::endl;
+
+	return 0;
 }
