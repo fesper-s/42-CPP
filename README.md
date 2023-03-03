@@ -7,5 +7,5 @@ This first module is to understand the specifities of C++ when compared to C.
 This module is to understand memory allocation, reference, pointers to members and the usage of the switch in C++.
 ## Module-02 - 80% ✅
 This module is to understand Ad-hoc polymorphism, overloads and orthodox canonical classes in C++. 
-## Module-03
+## Module-03 - 80% ✅
 This module is to understand Inheritance in C++. 
