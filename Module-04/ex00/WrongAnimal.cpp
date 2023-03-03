@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 08:27:32 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/03/03 09:27:27 by fesper-s         ###   ########.fr       */
+/*   Created: 2023/03/03 09:19:49 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/03/03 09:27:21 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal(void) : type("Animal") {
+WrongAnimal::WrongAnimal(void) : type("WrongAnimal") {
 	return;
 }
 
-Animal::Animal(Animal const &animal) {
-	*this = animal;
+WrongAnimal::WrongAnimal(WrongAnimal const &wrongAnimal) {
+	*this = wrongAnimal;
 }
 
-Animal::~Animal(void) {
+WrongAnimal::~WrongAnimal(void) {
 	return;
 }
-		
-Animal &Animal::operator=(Animal const &animal) {
-	this->type = animal.type;
+
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &wrongAnimal) {
+	this->type = wrongAnimal.type;
 	return *this;
 }
 
-std::string Animal::getType(void) const {
+std::string WrongAnimal::getType(void) const {
 	return this->type;
 }
 
-void Animal::makeSound(void) const {
-	std::cout << "* sound of silence *" << std::endl;
+void WrongAnimal::makeSound(void) const {
+	std::cout << "* wrong sound of silence *" << std::endl;	
 }

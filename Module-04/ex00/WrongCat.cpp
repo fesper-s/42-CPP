@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 11:10:24 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/03/03 09:15:10 by fesper-s         ###   ########.fr       */
+/*   Created: 2023/03/03 09:23:56 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/03/03 09:28:55 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_H
-# define WRONGANIMAL_H
+#include "WrongCat.hpp"
 
-# include <iostream>
+WrongCat::WrongCat(void) {
+	this->type = "WrongCat";
+	return;
+}
 
-class WrongAnimal {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal(void);
-		WrongAnimal(WrongAnimal const &wrongAnimal);
-		~WrongAnimal(void);
+WrongCat::WrongCat(WrongCat const &wrongCat) {
+	*this = wrongCat;
+}
 
-		WrongAnimal &operator=(WrongAnimal const &wrongAnimal);
-		std::string getType(void) const;
-		void makeSound(void) const;
-};
+WrongCat::~WrongCat(void) {
+	return;
+}
 
-#endif
+WrongCat &WrongCat::operator=(WrongCat const &wrongCat) {
+	this->type = wrongCat.type;
+	return *this;
+}
+
+void WrongCat::makeSound(void) const {
+	std::cout << "* wrong meow wrong meow *" << std::endl;
+}
