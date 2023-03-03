@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:10:24 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/03/03 09:15:10 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/03/03 10:09:43 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal(void);
 		WrongAnimal(WrongAnimal const &wrongAnimal);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal &operator=(WrongAnimal const &wrongAnimal);
 		std::string getType(void) const;
