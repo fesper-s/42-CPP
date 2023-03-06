@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:32:48 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/03/06 11:02:53 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:04:42 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main(void) {
 	cat->makeSound();
 	
 	std::cout << std::endl << "----- Destructors -----" << std::endl;
+	delete dog;
+	delete cat;
 
 	return 0;
 }
