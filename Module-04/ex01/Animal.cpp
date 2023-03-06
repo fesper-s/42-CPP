@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 08:27:32 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/03/03 09:44:42 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:08:55 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Animal::Animal(void) : type("Animal") {
 }
 
 Animal::Animal(Animal const &animal) {
-	std::cout << "Animal: copy constructor called" << std::endl;
 	*this = animal;
+	std::cout << "Animal: copy constructor called" << std::endl;
 }
 
 Animal::~Animal(void) {
@@ -26,8 +26,8 @@ Animal::~Animal(void) {
 }
 		
 Animal &Animal::operator=(Animal const &animal) {
-	std::cout << "Animal: copy assignment operator called" << std::endl;
 	this->type = animal.type;
+	std::cout << "Animal: copy assignment operator called" << std::endl;
 	return *this;
 }
 
