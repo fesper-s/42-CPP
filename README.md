@@ -15,4 +15,6 @@ Ad-hoc polymorphism, overloads and orthodox canonical classes in C++.
 ## Module-03 - 80% ✅
 Inheritance in C++. 
 ## Module-04 - 80% ✅
-Subtype polymorphism, abstract classes and interfaces in C++. 
+Subtype polymorphism, abstract classes and interfaces in C++.
+## Module-05
+Try/Catch and Exceptions in C++.
