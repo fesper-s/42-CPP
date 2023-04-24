@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 08:03:19 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/24 09:39:37 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:13:54 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main(void) {
 	try {
 		std::cout << johnDoe << std::endl;
 		std::cout << harvey << std::endl;
-		harvey.incrementGrade();
-		johnDoe.decrementGrade();
+		johnDoe.incrementGrade();
+		harvey.decrementGrade();
 		std::cout << johnDoe << std::endl;
 		std::cout << harvey << std::endl;
 	}
