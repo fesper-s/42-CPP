@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 08:04:07 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/24 12:57:37 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/26 08:43:05 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -31,7 +34,7 @@ class Bureaucrat {
 		int getGrade(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
-		void signForm(void);
+		void signForm(Form &form);
 
 		class GradeTooHighException : public std::exception {
 			public:

@@ -6,13 +6,13 @@
 #    By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 16:05:19 by fesper-s          #+#    #+#              #
-#    Updated: 2023/04/22 16:07:23 by fesper-s         ###   ########.fr        #
+#    Updated: 2023/04/26 08:56:32 by fesper-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = form
 
-SRCS = ./main.cpp ./Bureaucrat.cpp
+SRCS = ./main.cpp ./Bureaucrat.cpp ./Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

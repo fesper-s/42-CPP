@@ -6,13 +6,21 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 09:52:06 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/24 12:56:45 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/26 08:56:14 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form(void) : _name("Generic Form"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {
+	return;
+}
+
+Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec) {
+	if (gradeToSign > 150 || gradeToExec > 150)
+		throw Form::GradeTooHighException();
+	else if (gradeToSign < 1 || gradeToExec < 1)
+		throw Form::GradeTooLowException();
 	return;
 }
 
@@ -24,24 +32,33 @@ Form::~Form(void) {
 	return;
 }
 
-const std::string Form::getName(void) {
+Form &Form::operator=(const Form &form) {
+	(void) form;
+	std::cout << "Operator '=' is not available since the form private members are constant" << std::endl;
+	return *this;
+}
+
+std::string Form::getName(void) const {
 	return this->_name;
 }
 
-bool Form::getIsSigned(void) {
+bool Form::getIsSigned(void) const {
 	return this->_isSigned;
 }
 
-const int Form::getGradeToSign(void) {
+int Form::getGradeToSign(void) const {
 	return this->_gradeToSign;
 }
 
-const int Form::getGradeToExecute(void) {
+int Form::getGradeToExecute(void) const {
 	return this->_gradeToExecute;
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat) {
-	this->_isSigned = true;
+	if (bureaucrat.getGrade() > this->_gradeToSign)
+		throw Form::GradeTooLowException();
+	else
+		this->_isSigned = true;
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
@@ -50,4 +67,9 @@ const char *Form::GradeTooHighException::what() const throw() {
 
 const char *Form::GradeTooLowException::what() const throw() {
 	return "Error: Grade is too low";
+}
+
+std::ostream &operator<<(std::ostream &o, const Form &form) {
+	o << form.getName() << ", form sign is " << std::boolalpha << form.getIsSigned() << ", grade to sign is " << form.getGradeToSign() << ", grade to execute is " << form.getGradeToExecute();
+	return o;
 }

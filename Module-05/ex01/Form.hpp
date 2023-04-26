@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 09:34:14 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/24 09:59:05 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/26 08:53:08 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 	private:
@@ -24,14 +26,15 @@ class Form {
 	public:
 		Form(void);
 		Form(const Form &form);
+		Form(std::string name, int gradeToSign, int gradeToExec);
 		~Form(void);
 
 		Form &operator=(const Form &form);
 
-		const std::string getName(void);
-		bool getIsSigned(void);
-		const int getGradeToSign(void);
-		const int getGradeToExecute(void);
+		std::string getName(void) const;
+		bool getIsSigned(void) const;
+		int getGradeToSign(void) const;
+		int getGradeToExecute(void) const;
 		void beSigned(const Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception {
