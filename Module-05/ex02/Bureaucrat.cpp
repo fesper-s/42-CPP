@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:07:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/26 08:42:05 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/27 09:20:33 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void Bureaucrat::decrementGrade(void) {
 	this->_grade++;
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(AForm &form) {
 	try {
 		form.beSigned(*this);
-		std::cout << this->_name << " signed  " << form.getName() << std::endl; 
+		std::cout << this->_name << " signed " << form.getName() << std::endl; 
 	}
 	catch (const std::exception &e) {
 		std::cerr << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
