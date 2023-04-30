@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 09:34:14 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/26 08:53:08 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:44:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ class Bureaucrat;
 
 class Form {
 	private:
-		const std::string _name;
-		bool _isSigned;
-		const int _gradeToSign;
-		const int _gradeToExecute;
+		const std::string	_name;
+		bool				_signed;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
 	public:
-		Form(void);
-		Form(const Form &form);
-		Form(std::string name, int gradeToSign, int gradeToExec);
-		~Form(void);
+		Form();
+		Form(const Form &src);
+		Form(const std::string &name, int gradeToSign, int gradeToExec);
+		~Form();
 
-		Form &operator=(const Form &form);
+		Form &operator=(const Form &rhs);
 
-		std::string getName(void) const;
-		bool getIsSigned(void) const;
-		int getGradeToSign(void) const;
-		int getGradeToExecute(void) const;
+		const std::string getName() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 		void beSigned(const Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception {
@@ -47,6 +47,6 @@ class Form {
 		};
 };
 
-std::ostream &operator<<(std::ostream &o, const Form &form);
+std::ostream &operator<<(std::ostream &o, const Form &rhs);
 
 #endif

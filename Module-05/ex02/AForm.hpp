@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:02:41 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/27 14:15:55 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/04/30 19:09:30 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	private:
-		const std::string _name;
-		bool _isSigned;
-		const int _gradeToSign;
-		const int _gradeToExecute;
+		const std::string	_name;
+		bool				_signed;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
 	public:
-		Form(void);
-		Form(const Form &form);
-		Form(std::string name, int gradeToSign, int gradeToExec);
-		virtual ~Form(void);
+		AForm();
+		AForm(const AForm &src);
+		AForm(const std::string &name, int gradeToSign, int gradeToExec);
+		virtual ~AForm();
 
-		Form &operator=(const Form &form);
+		AForm &operator=(const AForm &rhs);
 
-		std::string getName(void) const;
-		bool getIsSigned(void) const;
-		int getGradeToSign(void) const;
-		int getGradeToExecute(void) const;
+		std::string getName() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 		void beSigned(const Bureaucrat &bureaucrat);
 		virtual void execute(Bureaucrat const &executor) const = 0;
 
@@ -52,6 +52,6 @@ class Form {
 		};
 };
 
-std::ostream &operator<<(std::ostream &o, const Form &form);
+std::ostream &operator<<(std::ostream &o, const AForm &rhs);
 
 #endif
