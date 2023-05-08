@@ -6,14 +6,13 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:07:30 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/30 19:03:26 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:26:24 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("John Doe"), _grade(150) {
-}
+Bureaucrat::Bureaucrat() : _name("John Doe"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) {
 	if (grade < 1)
@@ -22,11 +21,9 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src.getName()), _grade(src.getGrade()) {
-}
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src.getName()), _grade(src.getGrade()) {}
 
-Bureaucrat::~Bureaucrat() {
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 	this->_grade = rhs.getGrade();

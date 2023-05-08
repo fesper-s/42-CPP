@@ -6,14 +6,13 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:59:34 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/30 19:11:21 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:26:11 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("Generic AForm"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {
-}
+AForm::AForm() : _name("Generic AForm"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
 
 AForm::AForm(const std::string &name, int gradeToSign, int gradeToExec) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec) {
 	if (gradeToSign > 150 || gradeToExec > 150)
@@ -22,11 +21,9 @@ AForm::AForm(const std::string &name, int gradeToSign, int gradeToExec) : _name(
 		throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm &src) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute()) {
-}
+AForm::AForm(const AForm &src) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute()) {}
 
-AForm::~AForm() {
-}
+AForm::~AForm() {}
 
 AForm &AForm::operator=(const AForm &rhs) {
 	this->_signed = rhs.getSigned();

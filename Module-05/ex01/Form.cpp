@@ -6,14 +6,13 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 09:52:06 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/30 18:59:24 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:26:58 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("Generic Form"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {
-}
+Form::Form() : _name("Generic Form"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
 
 Form::Form(const std::string &name, int gradeToSign, int gradeToExec) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec) {
 	if (gradeToSign > 150 || gradeToExec > 150)
@@ -22,11 +21,9 @@ Form::Form(const std::string &name, int gradeToSign, int gradeToExec) : _name(na
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form &src) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute()) {
-}
+Form::Form(const Form &src) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute()) {}
 
-Form::~Form() {
-}
+Form::~Form() {}
 
 Form &Form::operator=(const Form &rhs) {
 	this->_signed = rhs.getSigned();

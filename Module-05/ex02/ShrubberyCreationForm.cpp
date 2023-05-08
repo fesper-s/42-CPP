@@ -6,41 +6,36 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 08:16:02 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/04/27 09:27:02 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:01:17 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("home") {
-	return;
-}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("home") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src), _target(src._target) {
-	return;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src), _target(src.getTarget()) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {
-	return;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	return;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
-	(void) rhs;
+	this->_target = rhs.getTarget();
 	return *this;
 }
 
+std::string ShrubberyCreationForm::getTarget() const {
+	return this->_target;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-	if (this->getIsSigned() == false)
+	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	else if (this->getGradeToExecute() < executor.getGrade())
 		throw AForm::GradeTooLowException();
 
-	std::ofstream ofs(this->getName() + "_shrubbery");
+	std::ofstream ofs(this->getTarget() + "_shrubbery");
 	ofs << "              v .   ._, |_  .," << std::endl;
 	ofs << "           `-._\\/  .  \\ /    |/_" << std::endl;
 	ofs << "               \\  _\\, y | \\//" << std::endl;
@@ -54,5 +49,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	ofs << "                     |    |" << std::endl;
 	ofs << "--------------------/ ,  . \\--------._" << std::endl;
 	ofs.close();
-	std::cout << this->getName() << "_shrubbery was created successfully!" << std::endl;
+	std::cout << this->getTarget() << "_shrubbery was created successfully!" << std::endl;
 }
