@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:10:13 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/05/05 09:48:59 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/08 08:20:07 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ std::string RobotomyRequestForm::getTarget() const {
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
+	std::srand(std::time(0));
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	else if (this->getGradeToExecute() < executor.getGrade())

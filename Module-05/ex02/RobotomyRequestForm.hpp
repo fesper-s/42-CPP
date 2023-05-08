@@ -6,18 +6,18 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:04:42 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/05/01 13:18:04 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/08 08:20:20 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-#include "AForm.hpp"
+# include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
 	private:
-		const std::string	_target;
+		std::string	_target;
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm &src);
