@@ -6,31 +6,24 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 08:03:19 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/05/08 10:50:59 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:41:30 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main(void) {
+int main() {
 	try {
-		Bureaucrat Joe("Joe", 42);
-		Bureaucrat President("Lex Luthor", 1);
-		//AForm form("genericForm", 50, 50);
-		ShrubberyCreationForm test("home");
-		RobotomyRequestForm test2("Hank Henshaw");
-		PresidentialPardonForm test3("Gorilla Harambe");
+		AForm *form;
+		Intern Karl;
+		Bureaucrat Major("Major Francis", 1);
 
-		Joe.signForm(test);
-		Joe.signForm(test2);
-		President.signForm(test3);
-		Joe.executeForm(test);
-		Joe.executeForm(test2);
-		President.executeForm(test3);
-		Joe.executeForm(test3);
+		form = Karl.makeForm("presidential pardon", "agent P");
+		Major.signForm(*form);
+		Major.executeForm(*form);
+
+		delete form;
 	}
 	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
