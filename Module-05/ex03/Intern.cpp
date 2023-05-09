@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:00:40 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/05/09 08:24:49 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/05/09 09:31:13 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ Intern::~Intern() {}
 Intern &Intern::operator=(const Intern &rhs) {
 	(void) rhs;
 	return *this;
+}
+
+const char *Intern::MakeFormException::what() const throw() {
+  return "Error: Intern cannot create form";
 }
 
 static AForm *makeShrubbery(const std::string &target) {
@@ -56,6 +60,5 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &formTarg
 			return forms[i](formTarget);
 		}
 	}
-	std::cout << "Intern cannot create " << formName << std::endl;
-	return NULL;
+	throw Intern::MakeFormException();
 }
