@@ -20,3 +20,5 @@ Subtype polymorphism, abstract classes and interfaces in C++.
 Try/Catch and Exceptions in C++.
 ## Module-06
 Different casts in C++.
+## Module-07
+Templates in C++.
