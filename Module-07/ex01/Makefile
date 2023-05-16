@@ -1,6 +1,6 @@
-NAME = serialization
+NAME = Iter
 
-SRCS = ./main.cpp ./Serializer.cpp
+SRCS = ./main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

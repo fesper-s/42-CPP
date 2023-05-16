@@ -1,5 +1,5 @@
-#ifndef SERIALIZE_HPP
-# define SERIALIZE_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 # include <iostream>
 # include <stdint.h>
@@ -9,15 +9,15 @@ typedef struct {
 	int content;
 } Data;
 
-class Serialize
+class Serializer
 {
 	private:
-		Serialize();
-		Serialize(const Serialize &src);
+		Serializer();
+		Serializer(const Serializer &src);
 	public:
-		~Serialize();
+		~Serializer();
 
-		Serialize &operator=(const Serialize &rhs);
+		Serializer &operator=(const Serializer &rhs);
 
 		static uintptr_t serialize(Data *ptr);
 		static Data *deserialize(uintptr_t raw);

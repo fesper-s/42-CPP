@@ -13,15 +13,15 @@ Base *generate() {
 }
 
 void identify(Base *p) {
-	if (dynamic_cast<const A *>(p) != nullptr) {
+	if (dynamic_cast<A *>(p) != NULL) {
 		std::cout << "type of pointer is A" << std::endl;
 		return;
 	}
-	else if (dynamic_cast<const B *>(p) != nullptr) {
+	else if (dynamic_cast<B *>(p) != NULL) {
 		std::cout << "type of pointer is B" << std::endl;
 		return;
 	}
-	if (dynamic_cast<const C *>(p) != nullptr) {
+	if (dynamic_cast<C *>(p) != NULL) {
 		std::cout << "type of pointer is C" << std::endl;
 		return;
 	}
@@ -29,15 +29,15 @@ void identify(Base *p) {
 
 void identify(Base &p) {
 	try {
-		if (dynamic_cast<const A *>(&p) != nullptr) {
+		if (dynamic_cast<A *>(&p) != NULL) {
 			std::cout << "type of ref is A" << std::endl;
 			return;
 		}
-		else if (dynamic_cast<const B *>(&p) != nullptr) {
+		else if (dynamic_cast<B *>(&p) != NULL) {
 			std::cout << "type of ref is B" << std::endl;
 			return;
 		}
-		else if (dynamic_cast<const C *>(&p) != nullptr) {
+		else if (dynamic_cast<C *>(&p) != NULL) {
 			std::cout << "type of ref is C" << std::endl;
 			return;
 		}
