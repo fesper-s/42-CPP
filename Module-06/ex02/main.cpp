@@ -28,17 +28,22 @@ void identify(Base *p) {
 }
 
 void identify(Base &p) {
-	if (dynamic_cast<const A *>(&p) != nullptr) {
-		std::cout << "type of ref is A" << std::endl;
-		return;
+	try {
+		if (dynamic_cast<const A *>(&p) != nullptr) {
+			std::cout << "type of ref is A" << std::endl;
+			return;
+		}
+		else if (dynamic_cast<const B *>(&p) != nullptr) {
+			std::cout << "type of ref is B" << std::endl;
+			return;
+		}
+		else if (dynamic_cast<const C *>(&p) != nullptr) {
+			std::cout << "type of ref is C" << std::endl;
+			return;
+		}
 	}
-	else if (dynamic_cast<const B *>(&p) != nullptr) {
-		std::cout << "type of ref is B" << std::endl;
-		return;
-	}
-	if (dynamic_cast<const C *>(&p) != nullptr) {
-		std::cout << "type of ref is C" << std::endl;
-		return;
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
 	}
 }
 

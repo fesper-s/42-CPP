@@ -4,9 +4,10 @@
 # include <iostream>
 
 class ScalarConverter {
-	public:
+	private:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &src);
+	public:
 		~ScalarConverter();
 
 		ScalarConverter &operator=(const ScalarConverter &rhs);

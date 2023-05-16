@@ -11,9 +11,10 @@ typedef struct {
 
 class Serialize
 {
-	public:
+	private:
 		Serialize();
 		Serialize(const Serialize &src);
+	public:
 		~Serialize();
 
 		Serialize &operator=(const Serialize &rhs);
