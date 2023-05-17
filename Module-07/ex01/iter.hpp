@@ -4,8 +4,9 @@
 # include <iostream>
 
 template<typename T>
-void iter(T &array, int arrayLenght, T &c) {
-	
+void iter(T *array, int len, void (*function)(const T &)) {
+	for (int i = 0; i < len; i++)
+		function(array[i]);	
 }
 
 #endif

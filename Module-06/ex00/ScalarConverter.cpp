@@ -41,11 +41,11 @@ void ScalarConverter::convert(const std::string &literal) {
 	typeInt = atoi(literal.c_str());
 
 	if (literal[literal.length() - 1] == 'f') {
-		typeFloat = stof(literal);
+		typeFloat = atof(literal.c_str());
 		typeDouble = static_cast<double>(typeFloat);
 	}
 	else {
-		typeDouble = stof(literal);
+		typeDouble = atof(literal.c_str());
 		typeFloat = static_cast<float>(typeDouble);
 	}
 
