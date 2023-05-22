@@ -7,8 +7,7 @@ int main() {
 		lst.push_back(1);
 		lst.push_back(17);
 		lst.push_back(42);
-		std::list<int>::iterator it;
-		for (it = ::easyfind(lst, 17); it != lst.end(); ++it)
+		for (std::list<int>::iterator it = ::easyfind(lst, 17); it != lst.end(); it++)
 			std::cout << *it << std::endl;
 
 		std::cout << std::endl << "----- Vector -----" << std::endl;
@@ -17,8 +16,7 @@ int main() {
 		vec.push_back(53);
 		vec.push_back(61);
 		vec.push_back(16);
-		std::vector<int>::iterator itv;
-		for (itv = ::easyfind(vec, 61); itv != vec.end(); ++itv)
+		for (std::vector<int>::iterator itv = ::easyfind(vec, 61); itv != vec.end(); itv++)
 			std::cout << *itv << std::endl;
 	}
 	catch (std::exception &e) {

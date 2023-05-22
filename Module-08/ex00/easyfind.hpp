@@ -8,10 +8,10 @@
 
 template<typename T>
 typename T::iterator easyfind(T &intContainer, int nbr) {
-	typename T::iterator it = find(intContainer.begin(), intContainer.end(), nbr);
-	if (it == intContainer.end())
-		throw std::runtime_error("Exception: No occurrence found");
-	return it;
+	for (typename T::iterator it = intContainer.begin(); it != intContainer.end(); it++)
+		if (*it == nbr)
+			return it;
+	throw std::runtime_error("Exception: No occurrence found");
 }
 
 #endif
