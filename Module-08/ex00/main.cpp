@@ -19,7 +19,7 @@ int main() {
 		for (std::vector<int>::iterator itv = ::easyfind(vec, 61); itv != vec.end(); itv++)
 			std::cout << *itv << std::endl;
 	}
-	catch (std::exception &e) {
+	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	return 0;
