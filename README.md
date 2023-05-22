@@ -18,7 +18,9 @@ Inheritance in C++.
 Subtype polymorphism, abstract classes and interfaces in C++.
 ## Module-05 - 80% ✅
 Try/Catch and Exceptions in C++.
-## Module-06
+## Module-06 - 100% ✅
 Different casts in C++.
 ## Module-07
 Templates in C++.
+## Module-08
+Templated containers, iterators and algorithms in C++. 
