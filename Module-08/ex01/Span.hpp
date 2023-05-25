@@ -2,6 +2,7 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <vector>
 
 class Span {
 	private:

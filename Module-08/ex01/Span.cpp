@@ -33,16 +33,15 @@ int Span::shortestSpan() {
 
 	int shortest = std::numeric_limits<int>::max();
     for (unsigned int i = 0; i < this->_numbers.size(); i++) {
-        for (unsigned int j = 0; j < this->_numbers.size(); j++)
-        {
+        for (unsigned int j = 0; j < this->_numbers.size(); j++) {
             if (j == i)
                 j++;
             if (j == this->_numbers.size())
                 break;
             if (this->_numbers[i] >= this->_numbers[j] && this->_numbers[i] - this->_numbers[j] < shortest)
-                    shortest = this->_numbers[i] - this->_numbers[j];
+				shortest = this->_numbers[i] - this->_numbers[j];
             else if (this->_numbers[j] >= this->_numbers[i] && this->_numbers[j] - this->_numbers[i] < shortest)
-                    shortest = this->_numbers[j] - this->_numbers[i];
+				shortest = this->_numbers[j] - this->_numbers[i];
         }
 	}
     return shortest;
