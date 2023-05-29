@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 12:56:53 by fesper-s          #+#    #+#             */
+/*   Updated: 2023/05/28 18:47:42 by fesper-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 Span::Span() {
@@ -54,4 +66,14 @@ int Span::longestSpan() {
 	std::vector<int> buffer(this->_numbers);
 	sort(buffer.begin(), buffer.end());
 	return buffer[buffer.size() - 1] - buffer[0];
+}
+
+void Span::fillSpan(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end) {
+	std::vector<int>::iterator it = begin;
+	while (it != end)
+		it++;
+	unsigned int finalSize = this->_numbers.size() + std::distance(begin, end); 
+	if (finalSize > this->N)
+    	throw std::runtime_error("Exception: Span is full");
+	this->_numbers.insert(this->_numbers.end(), begin, end);
 }
