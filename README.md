@@ -22,7 +22,7 @@ Try/Catch and Exceptions in C++
 Different casts in C++
 ## Module-07 - 100% ✅
 Templates in C++
-## Module-08
+## Module-08 - 100% ✅
 Templated containers, iterators and algorithms in C++
 ## Module-09
 Containers in C++
