@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:37:24 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/05/31 17:23:56 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:13:52 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <fstream>
 # include <map>
+# include <regex>
 
 class BitcoinExchange
 {
