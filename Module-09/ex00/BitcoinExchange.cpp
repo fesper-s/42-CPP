@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:39:23 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/05 16:58:36 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:58:55 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,24 @@ static bool isLeapYear(const int &year) {
         return true;
 }
 
-static bool valiDate(const std::string &date) {
-	std::regex dateFormat("^\\d{4}-\\d{2}-\\d{2}$");
+static bool isValidDateFormat(const std::string &date) {
+	if (date.size() != 10)
+		return false;
+	for (int i = 0; i < 10; i++) {
+		if (i == 4 || i == 7) {
+			if (date[i] != '-')
+				return false;
+		}
+		else {
+			if (!isdigit(date[i]))
+				return false;
+		}
+	}
+	return true;
+}
 
-	if (date != "date | val" && !std::regex_match(date, dateFormat)) {
+static bool valiDate(const std::string &date) {
+	if (date != "date | val" && !isValidDateFormat(date)) {
 		std::cerr << "Error: invalid date format => " << date << std::endl;
 		return false;
 	}
@@ -125,7 +139,7 @@ void BitcoinExchange::validateValue(const std::string &value, const std::string 
 }
 
 void BitcoinExchange::validateInputFile(const std::string &fileName) {
-	std::ifstream inputFile(fileName);
+	std::ifstream inputFile(fileName.c_str());
 
 	if (!inputFile.is_open()) {
 		std::cerr << "Error: file " << fileName << " doesn't exist." << std::endl;
