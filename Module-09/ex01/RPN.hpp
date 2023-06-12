@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:55:52 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/06 14:03:05 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:26:15 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class RPN {
 		~RPN();
 
 		RPN operator=(const RPN &rhs);
+
+		void execute(const std::string &exp);
 };
 
 #endif

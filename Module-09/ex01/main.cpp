@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:50:53 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/06 14:00:18 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:25:39 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@ int main(int argc, char **argv) {
 		std::cerr << "Error" << std::endl;
 		return 1;
 	}
+	RPN rpn;
+	rpn.execute(argv[1]);
 	return 0;
 }
