@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:03:19 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/13 17:15:36 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:51:55 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static bool isValidExpression(const std::string &exp) {
 		if (!(isdigit(exp[i]) || exp[i] == '+' || exp[i] == '-' || \
 			exp[i] == '/' || exp[i] == '*' || exp[i] == ' '))
 			return false;
-		if (i % 2 != 0 && exp[i] != ' ')
+		if ((i % 2 != 0 && exp[i] != ' ') || (i % 2 == 0 && exp[i] == ' '))
 			return false;
 	}
 	return true;
@@ -51,13 +51,13 @@ void RPN::execute(const std::string &exp) {
 				int buffer = this->_stack.top();
 				this->_stack.pop();
 				if (exp[i] == '+')
-					buffer += this->_stack.top();
+					buffer = this->_stack.top() + buffer;
 				else if (exp[i] == '-')
-					buffer -= this->_stack.top();
+					buffer = this->_stack.top() - buffer;
 				else if (exp[i] == '/')
-					buffer /= this->_stack.top();
+					buffer = this->_stack.top() / buffer;
 				else
-					buffer *= this->_stack.top();
+					buffer = this->_stack.top() * buffer;
 				this->_stack.pop();
 				this->_stack.push(buffer);
 			}
