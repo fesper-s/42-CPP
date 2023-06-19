@@ -18,6 +18,9 @@ OBJS = $(SRCS:.cpp=.o)
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
+%.o: %.cpp
+	c++ -c $< $(CPPFLAGS) -o $@
+
 $(NAME): $(OBJS)
 	c++ $^ $(CPPFLAGS) -o $@
 
