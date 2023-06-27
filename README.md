@@ -10,7 +10,7 @@ C++ Piscine - Introdution to Object Oriented Programming
 Specifities of C++ when compared to C
 ## Module-01 - 90% ✅
 Memory allocation, reference, pointers to members and the usage of the switch in C++
-## Module-02 - 80%
+## Module-02 - 80% ✅
 Ad-hoc polymorphism, overloads and orthodox canonical classes in C++
 ## Module-03 - 80% ✅
 Inheritance in C++. 
