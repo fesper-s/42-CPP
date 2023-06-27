@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 14:55:58 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/20 18:38:03 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:52:25 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <iostream>
 # include <list>
 # include <vector>
-# include <array>
+# include <cstdlib>
+# include <ctime>
 
 class PmergeMe {
 	private:
@@ -29,10 +30,9 @@ class PmergeMe {
 
 		PmergeMe operator=(const PmergeMe &rhs);
 
-		bool validateArg(char **nbrs);
-		void mergeSort();
-		void merge();
-		void execute(char **nbrs);
+		void parseArg(int argc, char **argv);
+		void getTime();
+		void execute(int argc, char **argv);
 };
 
 #endif

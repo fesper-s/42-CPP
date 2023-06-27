@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 12:46:45 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/16 15:01:33 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/27 10:54:44 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 	PmergeMe merge;
-	merge.execute(argv);
+	merge.execute(argc, argv);
 	return 0;
 }
