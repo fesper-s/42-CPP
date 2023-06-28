@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:02:10 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/27 14:47:48 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:07:38 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void sortContainer(Container &container) {
 	container.insert(container.end(), rightIt, right.end());
 }
 
-void PmergeMe::parseArg(int argc, char **argv) {
+bool PmergeMe::parseArg(int argc, char **argv) {
 	for (int i = 1; i < argc; i++) {
 		int buffer = atoi(argv[i]);
 		if (buffer <= 0) {
 			std::cerr << "Error" << std::endl;
-			return;
+			return false;
 		}
 		this->_vector.push_back(buffer);
 		this->_list.push_back(buffer);
@@ -80,24 +80,25 @@ void PmergeMe::parseArg(int argc, char **argv) {
 	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
+	return true;
 }
 
 void PmergeMe::execute(int argc, char **argv) {
-	parseArg(argc, argv);
-
-	double beginTime = clock();
+	if (!parseArg(argc, argv))
+		return;
+	clock_t beginTime = clock();
 	sortContainer(this->_vector);
-	double vectorTime = clock() - beginTime;
+	clock_t vectorTime = clock() - beginTime;
 
 	beginTime = clock();
 	sortContainer(this->_list);
-	double listTime = clock() - beginTime;
+	clock_t listTime = clock() - beginTime;
 	
 	std::cout << "After: ";
 	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 
-	std::cout << "Time to process a range of " << argc << "elements with std::vector : " << vectorTime / CLOCKS_PER_SEC << " us" << std::endl;
-	std::cout << "Time to process a range of " << argc << "elements with std::list : " << listTime / CLOCKS_PER_SEC * 10 << " us" << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << static_cast<double>(vectorTime) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::list : " << static_cast<double>(listTime) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 }

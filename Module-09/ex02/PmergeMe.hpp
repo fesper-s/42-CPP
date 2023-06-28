@@ -6,7 +6,7 @@
 /*   By: fesper-s <fesper-s@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 14:55:58 by fesper-s          #+#    #+#             */
-/*   Updated: 2023/06/27 11:52:25 by fesper-s         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:56:04 by fesper-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class PmergeMe {
 
 		PmergeMe operator=(const PmergeMe &rhs);
 
-		void parseArg(int argc, char **argv);
+		bool parseArg(int argc, char **argv);
 		void getTime();
 		void execute(int argc, char **argv);
 };
